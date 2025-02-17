@@ -6,25 +6,32 @@ import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/adminRoute.js";
 import doctorRouter from "./routes/doctorRoute.js";
 import userRouter from "./routes/userRoute.js";
-// app config
+
+// Initialize app
 const app = express();
-const port = process.env.PORT || 4000;
+
+// Connect to database & cloud services
 connectDB();
 connectCloudinary();
 
-// middlewares
+// Middlewares
 app.use(express.json());
-app.use(cors()); //connects frontend to backend
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Allow local frontend for now
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  })
+);
 
-// api endpoints
+// API Routes
 app.use("/api/admin", adminRouter);
 app.use("/api/doctor", doctorRouter);
 app.use("/api/user", userRouter);
-// localhost:400/api/admin/add-doctor
+
 app.get("/", (req, res) => {
   res.send("API WORKING HAH");
 });
 
-app.listen(port, () => {
-  // console.log("Server started on port:- ", port);
-});
+// Export the app for Vercel
+export default app;
