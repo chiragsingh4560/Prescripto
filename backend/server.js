@@ -30,7 +30,7 @@ app.use("/api/doctor", doctorRouter);
 app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("API IS WORKING !!! WOHOO");
+  res.send("API IS WORKING !!! WOHOOo");
 });
 
 // Export the app for Vercel
