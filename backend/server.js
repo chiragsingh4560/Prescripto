@@ -18,7 +18,11 @@ connectCloudinary();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://prescripto-chirag-singhs-projects-34dcef31.vercel.app", // Update to allow the deployed frontend
+   origin: [
+      "http://localhost:3000", // For local frontend
+      "https://prescripto-admin-livid.vercel.app", // Allow admin frontend domain
+      "https://prescripto-chirag-singhs-projects-34dcef31.vercel.app", // For main frontend domains
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   })
