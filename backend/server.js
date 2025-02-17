@@ -18,11 +18,12 @@ connectCloudinary();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow local frontend for now
+    origin: "https://prescripto-chirag-singhs-projects-34dcef31.vercel.app", // Update to allow the deployed frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   })
 );
+
 
 // API Routes
 app.use("/api/admin", adminRouter);
