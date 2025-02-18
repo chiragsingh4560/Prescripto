@@ -12,6 +12,8 @@ const AdminContextProvider = (props) => {
   const [dashData, setDashData] = useState(false);
   // get backendUrl from .env
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const frontendUrl = import.meta.env.VITE_FRONTEND_URL;
+
 
   const getAllDoctors = async () => {
     try {
@@ -106,6 +108,7 @@ const AdminContextProvider = (props) => {
     adminToken,
     setAdminToken,
     backendUrl,
+    frontendUrl,
     doctors,
     getAllDoctors,
     changeAvailability,
