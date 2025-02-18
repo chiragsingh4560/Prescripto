@@ -50,7 +50,7 @@ const Login = () => {
   };
 
   const navigateToUserLogin = () => {
-    window.location.assign(frontendUrl); // This will navigate to the admin URL correctly
+    window.location.assign(frontendUrl+"/login"); // This will navigate to the admin URL correctly
   };
 
   return (
