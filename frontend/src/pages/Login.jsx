@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const { backendUrl, token, setToken } = useContext(AppContext);
+  const { backendUrl, adminUrl, token, setToken } = useContext(AppContext);
 
   const [state, setState] = useState("Sign Up");
   const [email, setEmail] = useState("");
@@ -55,6 +55,10 @@ const Login = () => {
       navigate("/");
     }
   }, [token]);
+
+  const navigateToAdmin = () => {
+    window.location.assign(adminUrl); // This will navigate to the admin URL correctly
+  };
 
   // reusing same form for login as well as sign up page
   return (
@@ -128,6 +132,15 @@ const Login = () => {
             </span>
           </p>
         )}
+        <p>
+          Admin/Doctor Login?{" "}
+          <span
+            className="text-primary underline cursor-pointer"
+            onClick={navigateToAdmin}
+          >
+            Click here
+          </span>
+        </p>
       </div>
     </form>
   );
