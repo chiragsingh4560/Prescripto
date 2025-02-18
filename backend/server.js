@@ -21,7 +21,7 @@ app.use(
    origin: [
       "http://localhost:3000", // For local frontend
       "https://prescripto-admin-livid.vercel.app", // Allow admin frontend domain
-      "https://prescripto-chirag-singhs-projects-34dcef31.vercel.app", // For main frontend domains
+      "https://prescripto-frontend-taupe.vercel.app", // For main frontend domains
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
