@@ -11,7 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setAdminToken, backendUrl } = useContext(AdminContext);
+  const { setAdminToken, backendUrl, frontendUrl } = useContext(AdminContext);
 
   const { setDoctorToken } = useContext(DoctorContext);
 
@@ -47,6 +47,10 @@ const Login = () => {
       toast.error(error.message);
       console.log(error);
     }
+  };
+
+  const navigateToUserLogin = () => {
+    window.location.assign(frontendUrl); // This will navigate to the admin URL correctly
   };
 
   return (
@@ -103,6 +107,15 @@ const Login = () => {
             </span>
           </p>
         )}
+        <p>
+          User Login?{" "}
+          <span
+            className="text-primary underline cursor-pointer"
+            onClick={navigateToUserLogin}
+          >
+            Click here
+          </span>
+        </p>
       </div>
     </form>
   );
