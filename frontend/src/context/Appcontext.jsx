@@ -5,12 +5,14 @@ import axios from "axios";
 const AppContextProvider = (props) => {
   const currencySymbol = "$";
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const adminUrl = import.meta.env.VITE_ADMIN_URL;
   const [doctors, setDoctors] = useState([]);
   // agr local storage m token h to reload krne p remember the use and keep him logged in
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : false
   );
   const [userData, setUserData] = useState(false);
+
   const getDoctorsData = async () => {
     try {
       const { data } = await axios.get(backendUrl + "/api/doctor/list");
@@ -60,6 +62,7 @@ const AppContextProvider = (props) => {
     token,
     setToken,
     backendUrl,
+    adminUrl,
     userData,
     setUserData,
     loadUserProfileData,
